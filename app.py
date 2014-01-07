@@ -8,7 +8,7 @@ shopping_list = []
 def shopping_list_route():
 
 	if request.method == "GET":
-		response = make_response("[" + ", ".join(shopping_list) + "]", 200)
+		response = make_response(json.dumps(shopping_list), 200)
 		response.headers["Content-Type"] = "application/json"
 		return response
 		
