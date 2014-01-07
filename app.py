@@ -8,10 +8,10 @@ shopping_list = []
 def shopping_list_route():
 
 	if request.method == "GET":
-		if "Accept" in request.headers and request.headers["Accept"] == "application/json":
-			response = make_response("[" + ", ".join(shopping_list) + "]", 200)
-			response.headers["Content-Type"] = "application/json"
-			return response
+		response = make_response("[" + ", ".join(shopping_list) + "]", 200)
+		response.headers["Content-Type"] = "application/json"
+		return response
+		
 
 	elif request.method == "POST":			
 
