@@ -1,5 +1,6 @@
 from flask import Flask, request, make_response
 import json
+
 app = Flask(__name__)
 
 shopping_list = []
@@ -15,10 +16,10 @@ def shopping_list_route():
 
 	elif request.method == "POST":			
 
-		json = request.get_json()
-		if json:
-			if "shopping_list_item" in json:
-				shopping_list.append(json["shopping_list_item"])
+		data = request.get_json()
+		if data:
+			if "shopping_list_item" in data:
+				shopping_list.append(data["shopping_list_item"])
 		
 				return make_response("/shopping_list/{0}".format(len(shopping_list) -1), 200)
 			else:
